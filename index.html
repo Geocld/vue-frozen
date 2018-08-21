@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no, viewport-fit=cover" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+	<title>v-frozen</title>
+	<style>
+	*,
+	*::before,
+	*::after {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	}
+	html, body {
+		font-size: 14px;
+		line-height: 1.3;
+		color: #333;
+		font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+		-webkit-font-smoothing: antialiased;
+		text-rendering: optimizeLegibility;
+	}
+	body {
+		width: 100vw;
+		overflow-x: hidden;
+	}
+	.container { height: 200vh; background: #f03f46; }
+	.modal { position: fixed; z-index: 10000; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, .6); }
+	.modal .modal-wrap { box-shadow: 0 -2px 8px -3px rgba(0, 0, 0, .3); }
+	.modal.from_bottom .modal-wrap { position: absolute; bottom: 0; left: 0; right: 0; }
+	.modal-content { background: #fff; max-height: 150px; overflow: auto; }
+	</style>
+</head>
+
+<body>
+	<div id="demo" class="container">
+		<div v-for="(item, idx) in 30" :key="idx">{{ item }}</div>
+		<modal :show="show" @close-modal="show = false"></modal>
+		<div>
+			<button @click="show = true">modal</span>
+		</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.6/vue.js"></script>
+	<script src="./vue-frozen.js"></script>
+	<script>
+		Vue.component('modal', {
+			props: [ 'show' ],
+			template: `
+			<section v-if="show" v-frozen class="modal from_bottom" @click.stop="$emit('close-modal')">
+				<div class="modal-wrap" @click.stop>
+					<ul class="modal-content" v-frozen>
+						<li v-for="(item, idx) in 20" :key="idx">{{ item }}</li>
+					</ul>
+				</div>
+			</section>
+			`
+		});
+
+		new Vue({ 
+			el: '#demo',
+			data () {
+				return {
+					show: false
+				}
+			}
+		 })
+	</script>
+</body>

@@ -1,0 +1,21 @@
+{
+    "name": "vue-frozen",
+    "version": "1.0.0",
+    "description": "Vue directive for frozen scroll in mobile.",
+    "main": "vue-frozen.js",
+    "unpkg": "vue-frozen.js",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/Geocld/vue-frozen"
+    },
+    "keywords": [
+      "vue-frozen",
+      "vue",
+      "vue-directive"
+    ],
+    "author": "Geocld <lijiahao5372@gmail.com>",
+    "bugs": {
+      "url": "https://github.com/Geocld/vue-frozen/issues"
+    },
+    "license": "MIT"
+  }
