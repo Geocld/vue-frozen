@@ -7,6 +7,8 @@
 **效果示例-使用后:**
 ![](./example/img/after-use.gif)
 
+在线[demo](http://geocld.github.io/demo/v-frozen/index.html)
+
 ## 使用
 step-1. 使用npm:
 ```
