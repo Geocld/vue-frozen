@@ -11,8 +11,7 @@
 ![](./example/img/after-use.gif)
 
 
-在线[demo](http://geocld.github.io/
-demo/v-frozen/index.html)
+在线[demo](http://geocld.github.io/demo/v-frozen/index.html)
 
 示例参见：https://github.com/Geocld/vue-frozen/blob/master/example/index.html
 
